@@ -36,13 +36,6 @@ route '/assets/styles/*' do
   '/assets/' + File.basename(item.identifier) + '.css'
 end
 
-compile '/static/*' do
-end
-
-route '/static/*' do
-  item.identifier.gsub(/static/, 'assets')[0..-2]
-end
-
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -51,6 +44,8 @@ compile '*' do
     layout 'default'
   end
 end
+
+route %r{/(fonts|css)/} do item.identifier.chop; end
 
 route '*' do
   if item.binary?
