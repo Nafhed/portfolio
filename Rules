@@ -1,5 +1,32 @@
 #!/usr/bin/env ruby
 
+# This Rules file is an attempt at a near zero configuration for the common
+# use cases when creating a simple site with nanoc.  It's meant to have
+# better defaults so new users don't have to configure it much if at all.
+# For the most part, it copies all files from the content folder to the
+# output folder with the same name. It has the following features:
+#
+# * Certain predefined page extensions such as html, haml, md, markdown and
+#   textile are routed to "clean" URI's (see below regarding Item identifiers).
+#   The list of these extensions should be specified in nanoc.yaml:
+#
+#   page_extensions: [ 'haml', 'htm', 'html', 'markdown', 'md', 'textile', 'xhtml' ]
+#
+#   All the files matching one of these page extensions are filtered through erb
+#   (except haml) then filtered through one of Haml, Markdown and Textile if
+#   appropriate. Finally, the default layout is applied.
+#
+# * All other text files with an extension not found in the page extensions list
+#   and all binary files are routed with the same path and extension on
+#   output as on input.
+#
+# * Compass/SASS are much more easily supported just by uncommenting lines
+#   below and adding a config.rb.  This Rules file does not need to know
+#   where the .scss or .sass files are located which eliminates the need for
+#   special rules for scss and sass files and keeping paths in sync between
+#   this file and config.rb.  The compass config.rb must still be configured
+#   with the correct paths.
+#
 # A few helpful tips about the Rules file:
 #
 # * The string given to #compile and #route are matching patterns for
@@ -13,49 +40,77 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+# Use the compass sass framework for processing scss and sass files.
+# To use, uncomment these two lines and ensure you have a config.rb for compass.
 require 'compass'
-require 'bourbon'
+Compass.add_project_configuration('compass.rb')
 
-Compass.add_project_configuration 'compass.rb'        # when using Compass > 0.10
-sass_options = Compass.sass_engine_options            # when using Compass > 0.10
+# From nanoc.yaml, page_extensions
+page_extensions = @config[:page_extensions] || %w[ haml html markdown md textile mustache ]
 
-compile '/assets/styles/*' do
-  filter :sass, syntax: :scss
+# Preprocess items before they are compiled and frozen
+preprocess do
 end
 
-route '/assets/images/*' do
-  #ignore images for now
-end
-
-route '/assets/javascripts/*' do
-  #ignore javascripts for now
-end
-
-route '/assets/styles/*' do
-  # flatten assets to assets/ similar to rails
-  '/assets/' + File.basename(item.identifier) + '.css'
+# don't filter SASS partials
+compile %r{/_.+/$} do
+  nil
 end
 
 compile '*' do
   if item.binary?
-    # don’t filter binary items
+    # don't filter binary items
   else
-    filter :mustache
-    layout 'default'
+    if page_extensions.include?(item[:extension])
+      # for page files, filter and apply a layout
+      filter :mustache unless item[:extension].eql?('haml')
+      # filter by extension
+      case item[:extension]
+      when 'md','markdown' then
+        filter :kramdown, :auto_ids => false
+      when 'textile' then
+        filter :redcloth
+      when 'haml' then
+        filter :haml
+      end
+      layout 'default'
+    else
+      # Filter if a scss or sass file
+      filter :sass, Compass.sass_engine_options
+        .merge(:syntax => item[:extension].to_sym) if
+          %w[scss sass].include?item[:extension]
+    end
   end
 end
 
-route %r{/(fonts|css)/} do item.identifier.chop; end
+# don't route SASS partials
+route %r{/_.+/$} do
+  nil
+end
+
+# remove the double extensions on fonts
+route %r{/(fonts)/} do item.identifier.chop; end
 
 route '*' do
   if item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
+    if page_extensions.include?(item[:extension])
+      # Write item with identifier /foo/ to /foo/index.html
+      item.identifier + 'index.html'
+    else
+      # Map extensions if necessary
+      extension = case item[:extension]
+        # Map scss/sass extensions to css
+        when 'scss','sass'; 'css'
+        else item[:extension]
+      end
+      # Write item keeping extension
+      item.identifier.chop + '.' + extension
+    end
   end
 end
 
-# layout '*', :mustache, :format => :html5
 layout '*', :mustache
+# https://gist.github.com/bburton

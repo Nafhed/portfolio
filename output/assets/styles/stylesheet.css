@@ -1,0 +1,110 @@
+/* line 2, neat/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 6, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 16, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 19, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 25, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 29, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 35, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 40, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 5, content/assets/styles/stylesheet.scss */
+body {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  background: #fff;
+}
+
+/* line 10, content/assets/styles/stylesheet.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 15, content/assets/styles/stylesheet.scss */
+a:link,
+a:visited {
+  color: #f30;
+}
+
+/* line 19, content/assets/styles/stylesheet.scss */
+a:hover {
+  color: #f90;
+}
+
+/* line 23, content/assets/styles/stylesheet.scss */
+header {
+  background-color: #333333;
+  background-image: -webkit-linear-gradient(#333333, #cccccc);
+  background-image: linear-gradient(#333333, #cccccc);
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, bourbon/addons/_clearfix.scss */
+header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 27, content/assets/styles/stylesheet.scss */
+header h1 {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 22.652px;
+}
+
+/* line 33, content/assets/styles/stylesheet.scss */
+section {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, bourbon/addons/_clearfix.scss */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}

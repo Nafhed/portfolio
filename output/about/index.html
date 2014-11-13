@@ -3,33 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>A Brand New nanoc Site - About Nathan</title>
-    <link rel="stylesheet" href="/assets/stylesheet.css">
-    <link rel="stylesheet" href="/assets/font-awesome.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="/assets/styles/stylesheet.css">
+    <link rel="stylesheet" href="/assets/styles/font-awesome.css">
 
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" >
     <!-- you don't need to keep this, but it's cool for stats! -->
     <meta name="generator" content="nanoc ">
   </head>
   <body>
-    <div id="main">
+    <header role="header" id="header">
+      <h1>Nathan Brettell</h1>
+      <h2 class="greeting">Good Morning/Good Afternoon/Good Evening</h2>
+      <p>I'm a Web Developer, from South West England.</p>
+        <i class="icon-search icon-large"></i>
+        <nav id="navigation" class="main-menu" role="navigation">
+          <ul class="menu">
+            <li class="menu-item">Home</li>
+            <li class="menu-item">About</li>
+            <li class="menu-item">Portfolio</li>
+          </ul>
+        </nav>
+    </header>
+    <section id="main-container" class="">
       <h1>My cute little "About Nathan" page.</h1>
 
 <p>About: Nathan Brettell</p>
 
-    </div>
-    <div id="sidebar">
-      <i class="icon-search icon-large"></i>
-      <h2>Documentation</h2>
-      <ul>
-        <li>.</li>
-        <li><a href="http://nanoc.ws/docs/">Documentation</a></li>
-        <li><a href="http://nanoc.ws/docs/tutorial/">Getting Started</a></li>
-      </ul>
-      <h2>Community</h2>
-      <ul>
-        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
-        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
-        <li><a href="http://github.com/nanoc/nanoc/wiki/">Wiki</a></li>
-      </ul>
-    </div>
+    </section>
+    <footer id="footer" role="footer">
+      <p class="legal-stuff">&copy; Nathan Brettell</p>
+    </footer>
   </body>
 </html>
