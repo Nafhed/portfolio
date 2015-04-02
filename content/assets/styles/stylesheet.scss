@@ -1,41 +1,140 @@
-@import "../../../bourbon/bourbon";
-@import "../../../neat/neat";
-@import "meyer-reset";
+@import "compass";
 
-// Define breakpoints
-$tablet: new-breakpoint(max-width 768px 8);
-$mobile: new-breakpoint(max-width 480px 4);
+@import "../../../bourbon/bourbon";
+@import "../../../base/base"; // bitters
+@import "../../../neat/neat";
+
+$blue: #0092EC;
+$white: #FFF;
+
+$projects-color: #eac2ea;
+$skills-color: #FFC81B;
+$contact-color: #014062;
 
 body {
   font-family: $helvetica;
-  background: #fff;
+  background: $white;
+  margin: 0
 }
 
-header {
-@include outer-container;
+header#header {
+  position: relative;
+  @include fill-parent;
+  background: #0E1737;
+  @include pad(2em 0);
 
-  div.inside-header {
-    @include linear-gradient(#333333, #CCC);
-    @include span-columns(12);
+  .inside-header {
+    @include outer-container;
+    color: $white;
+    text-align: center;
+
       h1 {
-        font-family: $helvetica;
-        font-size: golden-ratio(14px,  1);
+        font-size: 4.8em;
+        font-weight: 200;
       }
+
+      #logo {
+        background: url('../images/portfolio_circle_red.png') left center no-repeat;
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        @include margin(1em 0);
+      }
+    }
+
+    section#home {
+      height: 0;
+      @include hide-text;
     }
 
     nav {
-      @include span-columns(12);
+      @include fill-parent;
+      z-index: 999;
 
+    @include direction-context(right-to-left) {
       ul {
+        text-align: right;
+        @include shift(1);
 
         li {
           display: inline-block;
-          padding: 2em;
+
+          a {
+            color: $white;
+            @include pad(0.5em);
+            display: inline-block;
+
+            &.active {
+              border-bottom: 2px solid $white;
+            }
+          }
         }
       }
     }
+
+      &.fxd {
+        background: #0E1737;
+      }
+    }
+
+    #canvas_lines {
+      position: absolute;
+      top: 0;
+    }
 }
 
-section {
-  @include outer-container;
+#page {
+
+  h2 {
+    line-height: 1.75em;
+  }
+
+  section {
+    // @include fill-parent;
+    @include pad(2em 0);
+
+    article {
+      @include outer-container;
+    }
+
+    &#projects {
+      @include outer-container;
+
+      #past_projects,
+      #future_projects {
+        @include fill-parent();
+        display: inline-block;
+
+        figure.show-off {
+          margin: 0;
+          @include span-columns(5 of 15);
+          @include pad(0.5em);
+          background: $projects-color;
+          height: 225px;
+        }
+
+      }
+    }
+    &#skills {
+      background: $skills-color;
+    }
+  }
+}
+
+footer {
+@include pad(2em 0);
+
+  &#footer {
+    background: $contact-color;
+
+    .inside-footer {
+      @include outer-container;
+      color: $white;
+
+      section.contact {
+        text-align: center;
+      }
+    }
+  }
+
 }

@@ -28,7 +28,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /* sprites.less reset */
 /* line 40, content/assets/styles/font-awesome.scss */
 [class^="icon-"], [class*=" icon-"] {
@@ -1158,4 +1157,9 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 /* line 324, content/assets/styles/font-awesome.scss */
 .icon-user-md:before {
   content: "\f200";
+}
+
+/* line 325, content/assets/styles/font-awesome.scss */
+.icon-gamepad:before {
+  content: "\f11b";
 }

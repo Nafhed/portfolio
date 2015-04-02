@@ -1,110 +1,488 @@
-/* line 2, neat/grid/_grid.scss */
-* {
+@charset "UTF-8";
+/* Bitters 0.10.0
+ * http://bitters.bourbon.io
+ * Copyright 2013–2014 thoughtbot, inc.
+ * MIT License */
+/* line 1, base/extends/_button.scss */
+button,
+input[type="submit"] {
+  -webkit-font-smoothing: antialiased;
+  background-color: #477DCA;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+}
+/* line 13, base/extends/_button.scss */
+button:hover,
+input[type="submit"]:hover {
+  background-color: #2c5999;
+  color: white;
+}
+/* line 18, base/extends/_button.scss */
+button:disabled,
+input[type="submit"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* line 1, base/_typography.scss */
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: white;
+  color: #333;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* line 10, base/_typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  line-height: 1.25;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 22, base/_typography.scss */
+h1 {
+  font-size: 2.25em;
+}
+
+/* line 26, base/_typography.scss */
+h2 {
+  font-size: 2em;
+}
+
+/* line 30, base/_typography.scss */
+h3 {
+  font-size: 1.75em;
+}
+
+/* line 34, base/_typography.scss */
+h4 {
+  font-size: 1.5em;
+}
+
+/* line 38, base/_typography.scss */
+h5 {
+  font-size: 1.25em;
+}
+
+/* line 42, base/_typography.scss */
+h6 {
+  font-size: 1em;
+}
+
+/* line 46, base/_typography.scss */
+p {
+  margin: 0 0 0.75em;
+}
+
+/* line 50, base/_typography.scss */
+a {
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #477DCA;
+  text-decoration: none;
+}
+/* line 55, base/_typography.scss */
+a:hover {
+  color: #2c5999;
+}
+/* line 59, base/_typography.scss */
+a:active, a:focus {
+  color: #2c5999;
+  outline: none;
+}
+
+/* line 65, base/_typography.scss */
+hr {
+  border-bottom: 1px solid #DDD;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.5em 0;
+}
+
+/* line 73, base/_typography.scss */
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* line 79, base/_typography.scss */
+blockquote {
+  border-left: 2px solid #DDD;
+  color: #595959;
+  margin: 1.5em 0;
+  padding-left: 0.75em;
+}
+
+/* line 86, base/_typography.scss */
+cite {
+  color: #737373;
+  font-style: italic;
+}
+/* line 90, base/_typography.scss */
+cite:before {
+  content: "\2014 \00A0";
+}
+
+/* line 1, base/_forms.scss */
+fieldset {
+  background: #f7f7f7;
+  border: 1px solid #DDD;
+  margin: 0 0 0.75em 0;
+  padding: 1.5em;
+}
+
+/* line 8, base/_forms.scss */
+input,
+label,
+select {
+  display: block;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+}
+
+/* line 16, base/_forms.scss */
+label {
+  font-weight: bold;
+  margin-bottom: 0.375em;
+}
+/* line 20, base/_forms.scss */
+label.required:after {
+  content: "*";
+}
+/* line 24, base/_forms.scss */
+label abbr {
+  display: none;
+}
+
+/* line 29, base/_forms.scss */
+textarea,
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea,
+select[multiple=multiple] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color;
+  -moz-transition: border-color;
+  transition: border-color;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #DDD;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  margin-bottom: 0.75em;
+  padding: 0.5em 0.5em;
+  width: 100%;
+}
+/* line 44, base/_forms.scss */
+textarea:hover,
+input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="time"]:hover, input[type="url"]:hover, input[type="week"]:hover, textarea:hover,
+select[multiple=multiple]:hover {
+  border-color: #c4c4c4;
+}
+/* line 48, base/_forms.scss */
+textarea:focus,
+input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, textarea:focus,
+select[multiple=multiple]:focus {
+  border-color: #477DCA;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(55, 112, 192, 0.7);
+  outline: none;
+}
+
+/* line 55, base/_forms.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 59, base/_forms.scss */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+/* line 63, base/_forms.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: 0.375em;
+}
+
+/* line 69, base/_forms.scss */
+input[type="file"] {
+  padding-bottom: 0.75em;
+  width: 100%;
+}
+
+/* line 74, base/_forms.scss */
+select {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  width: auto;
+}
+
+/* line 1, base/_tables.scss */
+table {
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* line 8, base/_tables.scss */
+th {
+  border-bottom: 1px solid #b7b7b7;
+  font-weight: bold;
+  padding: 0.75em 0;
+  text-align: left;
+}
+
+/* line 15, base/_tables.scss */
+td {
+  border-bottom: 1px solid #DDD;
+  padding: 0.75em 0;
+}
+
+/* line 20, base/_tables.scss */
+tr,
+td,
+th {
+  vertical-align: middle;
+}
+
+/* line 1, base/_lists.scss */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 20, base/_lists.scss */
+dl {
+  margin-bottom: 0.75em;
+}
+/* line 23, base/_lists.scss */
+dl dt {
+  font-weight: bold;
+  margin-top: 0.75em;
+}
+/* line 28, base/_lists.scss */
+dl dd {
+  margin: 0;
+}
+
+/* line 1, base/_buttons.scss */
+button,
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* line 4, neat/grid/_box-sizing.scss */
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 6, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+/* line 9, neat/grid/_box-sizing.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* line 14, content/assets/styles/stylesheet.scss */
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  background: #FFF;
   margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
 }
 
-/* line 16, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+/* line 20, content/assets/styles/stylesheet.scss */
+header#header {
+  position: relative;
+  width: 100%;
+  background: #0E1737;
+  padding: 2em 0;
+}
+/* line 26, content/assets/styles/stylesheet.scss */
+header#header .inside-header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  color: #FFF;
+  text-align: center;
+}
+/* line 20, bourbon/addons/_clearfix.scss */
+header#header .inside-header::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+/* line 31, content/assets/styles/stylesheet.scss */
+header#header .inside-header h1 {
+  font-size: 4.8em;
+  font-weight: 200;
+}
+/* line 36, content/assets/styles/stylesheet.scss */
+header#header .inside-header #logo {
+  background: url("../images/portfolio_circle_red.png") left center no-repeat;
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  margin: 1em 0;
+}
+/* line 45, content/assets/styles/stylesheet.scss */
+header#header section#home {
+  height: 0;
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+/* line 50, content/assets/styles/stylesheet.scss */
+header#header nav {
+  width: 100%;
+  z-index: 999;
+}
+/* line 55, content/assets/styles/stylesheet.scss */
+header#header nav ul {
+  text-align: right;
+  margin-right: 8.5298%;
+}
+/* line 59, content/assets/styles/stylesheet.scss */
+header#header nav ul li {
+  display: inline-block;
+}
+/* line 62, content/assets/styles/stylesheet.scss */
+header#header nav ul li a {
+  color: #FFF;
+  padding: 0.5em;
+  display: inline-block;
+}
+/* line 67, content/assets/styles/stylesheet.scss */
+header#header nav ul li a.active {
+  border-bottom: 2px solid #FFF;
+}
+/* line 75, content/assets/styles/stylesheet.scss */
+header#header nav.fxd {
+  background: #0E1737;
+}
+/* line 80, content/assets/styles/stylesheet.scss */
+header#header #canvas_lines {
+  position: absolute;
+  top: 0;
+}
+
+/* line 88, content/assets/styles/stylesheet.scss */
+#page h2 {
+  line-height: 1.75em;
+}
+/* line 92, content/assets/styles/stylesheet.scss */
+#page section {
+  padding: 2em 0;
+}
+/* line 96, content/assets/styles/stylesheet.scss */
+#page section article {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 20, bourbon/addons/_clearfix.scss */
+#page section article::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+/* line 100, content/assets/styles/stylesheet.scss */
+#page section#projects {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 20, bourbon/addons/_clearfix.scss */
+#page section#projects::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+/* line 103, content/assets/styles/stylesheet.scss */
+#page section#projects #past_projects,
+#page section#projects #future_projects {
+  width: 100%;
+  display: inline-block;
+}
+/* line 108, content/assets/styles/stylesheet.scss */
+#page section#projects #past_projects figure.show-off,
+#page section#projects #future_projects figure.show-off {
+  margin: 0;
+  float: left;
   display: block;
+  margin-right: 1.87727%;
+  width: 32.08182%;
+  padding: 0.5em;
+  background: #eac2ea;
+  height: 225px;
+}
+/* line 87, neat/grid/_span-columns.scss */
+#page section#projects #past_projects figure.show-off:last-child,
+#page section#projects #future_projects figure.show-off:last-child {
+  margin-right: 0;
+}
+/* line 118, content/assets/styles/stylesheet.scss */
+#page section#skills {
+  background: #FFC81B;
 }
 
-/* line 19, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-body {
-  line-height: 1;
+/* line 124, content/assets/styles/stylesheet.scss */
+footer {
+  padding: 2em 0;
 }
-
-/* line 22, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-ol, ul {
-  list-style: none;
+/* line 127, content/assets/styles/stylesheet.scss */
+footer#footer {
+  background: #014062;
 }
-
-/* line 25, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-blockquote, q {
-  quotes: none;
-}
-
-/* line 29, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-/* line 35, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-q:before, q:after {
-  content: "";
-  content: none;
-}
-
-/* line 40, /Users/Nathan/.rvm/gems/ruby-2.1.3/gems/meyer-reset-2.0.1/stylesheets/_meyer-reset.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* line 5, content/assets/styles/stylesheet.scss */
-body {
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  background: #fff;
-}
-
-/* line 10, content/assets/styles/stylesheet.scss */
-a {
-  text-decoration: none;
-}
-
-/* line 15, content/assets/styles/stylesheet.scss */
-a:link,
-a:visited {
-  color: #f30;
-}
-
-/* line 19, content/assets/styles/stylesheet.scss */
-a:hover {
-  color: #f90;
-}
-
-/* line 23, content/assets/styles/stylesheet.scss */
-header {
-  background-color: #333333;
-  background-image: -webkit-linear-gradient(#333333, #cccccc);
-  background-image: linear-gradient(#333333, #cccccc);
+/* line 130, content/assets/styles/stylesheet.scss */
+footer#footer .inside-footer {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
+  color: #FFF;
 }
-/* line 15, bourbon/addons/_clearfix.scss */
-header:after {
+/* line 20, bourbon/addons/_clearfix.scss */
+footer#footer .inside-footer::after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
-/* line 27, content/assets/styles/stylesheet.scss */
-header h1 {
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  font-size: 22.652px;
-}
-
-/* line 33, content/assets/styles/stylesheet.scss */
-section {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* line 15, bourbon/addons/_clearfix.scss */
-section:after {
-  content: "";
-  display: table;
-  clear: both;
+/* line 134, content/assets/styles/stylesheet.scss */
+footer#footer .inside-footer section.contact {
+  text-align: center;
 }
