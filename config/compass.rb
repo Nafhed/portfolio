@@ -1,3 +1,6 @@
+require 'compass/import-once/activate'
+# Require any additional compass plugins here.
+
 # config.rb
 
 #!/usr/bin/env ruby
@@ -62,28 +65,29 @@ javascripts_dir = "content/assets/javascripts"
 ##output_style = :compact
 output_style = if environment == :production then :compact else :expanded end
 
-# Indicates whether the compass helper functions should generate
-# relative urls from the generated css to assets, or absolute urls
-# using the http path for that asset type.
-relative_assets = true
+  # Indicates whether the compass helper functions should generate
+  # relative urls from the generated css to assets, or absolute urls
+  # using the http path for that asset type.
+  relative_assets = true
 
-# old stuffs
-# output_style = :compressed
-# preferred_syntax = :scss
-# relative_assets = true
-# sass_options = {
-#   :syntax => :scss
-# }
-# Options passed directly to the Sass compiler.
-# Must be defined in this file to work with compass command.
-# For more details on the sass options, see
-#   http://sass-lang.com/docs/yardoc/SASS_REFERENCE.md.html#options
-sass_options = {
-  :syntax => :scss  # use SCSS syntax
-  #:full_exception => true,
-  #:line_comments => false,
-  #:trace_selectors => false
-  # The debug_info option generates copious output to support the Firebug
-  # FireSass plugin for Firefox which shows the associated Sass line number.
-  #:debug_info => true
-}
+  # old stuffs
+  # output_style = :compressed
+  # preferred_syntax = :scss
+  # relative_assets = true
+  # sass_options = {
+  #   :syntax => :scss
+  # }
+  # Options passed directly to the Sass compiler.
+  # Must be defined in this file to work with compass command.
+  # For more details on the sass options, see
+  #   http://sass-lang.com/docs/yardoc/SASS_REFERENCE.md.html#options
+  sass_options = {
+    :syntax => :scss  # use SCSS syntax
+    #:full_exception => true,
+    #:line_comments => false,
+    #:trace_selectors => false
+    # The debug_info option generates copious output to support the Firebug
+    # FireSass plugin for Firefox which shows the associated Sass line number.
+    #:debug_info => true
+  }
+  

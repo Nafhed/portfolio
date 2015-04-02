@@ -1,6 +1,14 @@
 /* ignore sass cache */
 .sass-cache/
+
 /* ignore tmp */
 tmp/
+
 /*ignore crash log */
 crash.log
+
+/* ignore frameworks */
+bourbon/*
+neat/*
+base/*
+jquery/*

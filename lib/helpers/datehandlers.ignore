@@ -1,0 +1,16 @@
+module DateTimeHandler
+  def today
+    require 'date'
+    today =  Date.today
+  end
+  def time_string
+    require 'time'
+    time = Time.now
+    if time.hour < 12
+      print 'Morning'
+    else time.hour < 17
+      print 'Afternoon'
+    else time.hour > 17
+      print 'Evening'
+  end
+end

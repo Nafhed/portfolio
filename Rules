@@ -57,28 +57,42 @@ compile %r{/_.+/$} do
   nil
 end
 
+# posts layout
+compile '/posts/*' do
+  filter :mustache
+  filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  layout 'posts'
+end
+
+compile '/assets/styles/*' do
+  # Filter if a scss or sass file
+  filter :sass, Compass.sass_engine_options
+  .merge(:syntax => item[:extension].to_sym) if
+  %w[scss sass].include?item[:extension]
+end
+
+# generic layout
 compile '*' do
   if item.binary?
     # don't filter binary items
   else
     if page_extensions.include?(item[:extension])
       # for page files, filter and apply a layout
-      filter :mustache unless item[:extension].eql?('haml')
+      filter :mustache
       # filter by extension
-      case item[:extension]
+    case item[:extension]
       when 'md','markdown' then
         filter :kramdown, :auto_ids => false
       when 'textile' then
         filter :redcloth
       when 'haml' then
         filter :haml
-      end
-      layout 'default'
-    else
-      # Filter if a scss or sass file
-      filter :sass, Compass.sass_engine_options
-        .merge(:syntax => item[:extension].to_sym) if
-          %w[scss sass].include?item[:extension]
+      when 'html' then
+        filter :erb
+    end
+      layout 'main'
+      filter :colorize_syntax, :default_colorizer => :pygmentsrb
+      filter :erb
     end
   end
 end
@@ -89,8 +103,20 @@ route %r{/_.+/$} do
 end
 
 # remove the double extensions on fonts
-route %r{/(fonts)/} do item.identifier.chop; end
+passthrough '/assets/fonts/*'
+passthrough '/assets/scripts/*'
 
+# ignore scripts
+ignore '/assets/scripts/*'
+
+# blog stuff
+route '/posts/*' do
+  y,m,d,slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(item.identifier).captures
+
+  "/#{y}/#{m}/#{slug}/index.html"
+end
+
+# generic stuff
 route '*' do
   if item.binary?
     # Write item with identifier /foo/ to /foo.ext
