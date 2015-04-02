@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My Personal Space - {{title}}</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+    <!-- you don't need to keep this, but it's cool for stats! (I like stats!)-->
+    <meta name="generator" content="nanoc {{version}}">
+
+    <link rel="stylesheet" href="/assets/styles/stylesheet.css" />
+    <link rel="stylesheet" href="/assets/styles/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/styles/pygments/monokai.css" />
+
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/jquery.smint.js"></script>
+    <script type="text/javascript" src="/assets/scripts/script.js"></script>
+  </head>
+  <body>
+    <header role="header" id="header">
+      <div class="inside inside-header">
+        <span id="logo"></span>
+        <h1>{{author}}</h1>
+        <h2 class="greeting">That's Me.</h2>
+        <p>I'm a Web Developer, from South West England.</p>
+      </div>
+        <nav id="navigation" class="main-menu" role="navigation">
+          <ul class="menu">
+            <li class="menu-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="menu-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="menu-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="menu-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <canvas id="canvas_lines"></canvas>
+        <section id="home" class="home portfolio-section"><span>Just a placeholder for the Home navigation.</span></section>
+    </header>
+    <div id="page">
+      <section id="projects" class="projects portfolio-section">
+        <article id="project-showcase" class="portfolio-content gallery" role="gallery">
+          <h1> Projects </h1>
+          {{{yield}}}
+          <div id="past_projects">
+            <figure class="show-off">
+              <img />
+              <figcaption class="category"><i class="icon icon-tag"></i> Clothing</figcation>
+            </figure>
+            <figure class="show-off">
+              <img />
+              <figcaption class="category"><i class="icon icon-gamepad"></i> Gamification</figcation>
+            </figure>
+            <figure class="show-off">
+              <img />
+              <figcaption class="category"><i class="icon icon-bar-chart"></i> API/Visualization</figcation>
+            </figure>
+          </div>
+          <h2>What I'm currently working on...</h2>
+          <div id="future_projects">
+            <figure class="show-off">
+              <img />
+              <figcaption class="category"><i class="icon icon-gamepad"></i> Gamification</figcation>
+            </figure>
+            <figure class="show-off">
+              <img />
+              <figcaption class="category"><i class="icon icon-bar-chart"></i> API/Visualization</figcation>
+            </figure>
+          </div>
+        </article>
+      </section>
+      <section id="skills" class="skills portfolio-section">
+        <article class="portfolio-content">
+          <h1> Skills </h1>
+
+          <p>{{lipsum_placeholder}}</p>
+
+          <ul class="skills-tags">
+            <li class="tag skill">jQuery</li>
+            <li class="tag skill">HTML5</li>
+            <li class="tag skill">PHP</li>
+          </ul>
+          <div id="skill-examples" class="skills">
+            <div class="skill-example codehilite">
+              <pre><code class="language-javascript">
+                $(function() {
+                  // code stuffs here
+                });
+              </code></pre>
+            </div>
+            <div class="skill-example codehilite">
+              <pre><code class="language-php">
+                function code($one, $two) {
+                  // code somethings pls
+                }
+              </code></pre>
+            </div>
+            <div class="skill-example codehilite">
+              <pre><code class="language-ruby">
+                def foo
+                "asdf"
+                end
+              </code></pre>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+    <footer id="footer" role="footer">
+      <div class="inside inside-footer">
+        <section class="contact portfolio-section">
+          <h4> Contact </h4>
+          <span class="legal-stuff">&copy; {{author}}</span> -
+          <a href="mailto:hello@nathanbrettell.com">hello@nathanbrettell.com</a>
+          <i class="icon icon-evelope"></i>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
