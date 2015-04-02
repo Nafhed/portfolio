@@ -1,0 +1,22 @@
+---
+title: Portfolio of Nathan
+author: Nathan Brettell
+---
+<div class="description">
+  <p>Here are a few things that I have worked on.</p>
+
+  <p>I'm gonna turn this into a blog.</p>
+
+  <p>If you need any help with customizing your nanoc web site, be sure to check out the documentation (see sidebar), and be sure to subscribe to the discussion group (also see sidebar). Enjoy!</p>
+
+  <p>Another nanoc convert! Master will be pleased!</p>
+</div>
+
+<% sorted_articles.each do |post| %>
+<artcle class='post'>
+  <h1><%= link_to post[:title], post.path %></h1>
+  <span>Posted at: <%= post[:created_at] %></span>
+  <span>Posted at: <%= post[:tag] %></span>
+    <%= post.compiled_content %>
+</article>
+<% end %>
