@@ -76,3 +76,6 @@ checks:
     # E.g.:
     #   exclude: ['^/server_status']
     exclude: []
+
+
+ga_tracking_code: UA-28161343-1
