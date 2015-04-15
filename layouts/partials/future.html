@@ -1,0 +1,7 @@
+<% items_with_tag('future').each do |post| %>
+<article class="post">
+  <h1><%= link_to post[:title], post.path %></h1>
+  <img class="highlight-image" src="<%= post[:image] %>" />
+  <span><i class="icon icon-<%= post[:icon] %>"></i> <%= post[:tag] %></span>
+</article>
+<% end %>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My Personal Space - <%= item[:title] %></title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <meta name="description" content="Personal portfolio of Nathan Brettell." />
+    <meta name="keywords" content="web developer, portfolio, south west, cornwall, bristol, plymouth" />
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+    <!-- you don't need to keep this, but it's cool for stats! (I like stats!)-->
+    <meta name="generator" content="nanoc <%= item[:version] %>">
+
+    <link rel="stylesheet" href="/assets/styles/stylesheet.css" />
+    <link rel="stylesheet" href="/assets/styles/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/styles/pygments/monokai.css" />
+
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/jquery.smint.js"></script>
+    <script type="text/javascript" src="/assets/scripts/script.js"></script>
+
+    <%= ga_tracking_snippet %>
+  </head>
+  <body>
+    <header role="header" id="header">
+      <div class="inside inside-header">
+        <span id="logo"></span>
+        <h1><%= item[:author] %></h1>
+        <h2 class="greeting">That's Me.</h2>
+        <p>I'm a <em>Web Developer</em>, from South West England.</p>
+        <h3>This is what I do.</h3>
+      </div>
+        <nav id="navigation" class="main-menu" role="navigation">
+          <ul class="menu">
+            <li class="menu-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="menu-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="menu-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="menu-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <canvas id="canvas_lines"></canvas>
+        <section id="home" class="home portfolio-section"><span>Just a placeholder for the Home navigation.</span></section>
+    </header>
+    <div id="page">
+      <section id="projects" class="projects portfolio-section">
+        <article id="past-project-showcase" class="portfolio-content gallery" role="gallery">
+          <h1> Projects </h1>
+          <%= yield %>
+        </article>
+        <article id="future-project-showcase" class="portfolio-content gallery" role="gallery">
+          <h2>What I'm currently working on...</h2>
+          <% items_with_tag('future').each do |post| %>
+          <article class="post">
+            <h1><%= link_to post[:title], post.path %></h1>
+            <img class="highlight-image" src="<%= post[:image] %>" />
+            <span><i class="icon icon-<%= post[:icon] %>"></i> <%= post[:tag] %></span>
+          </article>
+          <% end %>
+        </article>
+      </section>
+      <section id="skills" class="skills portfolio-section">
+        <article class="portfolio-content">
+          <h1> Skills </h1>
+
+          <div class="description">
+            <p><%= lipsum_placeholder %></p>
+          </div>
+
+          <ul class="skills-tags">
+            <li class="tag skill" style="font-size: 60%;">JavaScript ->
+              <ul class="sub-skills">
+                <li class="tag skill" style="font-size: 80%;">jQuery</li>
+              </ul>
+            </li>
+            <li class="tag skill"style="font-size: 90%;">HTML5</li>
+            <li class="tag skill" style="font-size: 60%;">PHP</li>
+            <li class="tag skill" style="font-size: 10%;">Ruby</li>
+            <li class="tag skill" style="font-size: 15%;">Linux</li>
+            <li class="tag skill" style="font-size: 80%;">CSS ->
+              <ul class="sub-skills">
+                <li class="tag skill"style="font-size: 50%;">SCSS</li>
+              </ul>
+            </li>
+            <li class="tag skill" style="font-size: 70%;">Custom CMS ->
+              <ul class="sub-skills">
+                <li class="tag skill" style="font-size: 100%;">WordPress</li>
+                <li class="tag skill" style="font-size: 100%;">Drupal</li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </div>
+    <footer id="footer" role="footer">
+      <div class="inside inside-footer">
+        <section id="contact" class="contact portfolio-section">
+          <h4> Contact </h4>
+          <p>
+            <span class="legal-stuff">&copy; <%= item[:author] %></span> -
+            <i class="icon icon-envelope"></i>
+            <a href="mailto:hello@nathanbrettell.com">hello@nathanbrettell.com</a>
+          </p>
+          <p><small>Built with <a href="http://nanoc.ws">Nanoc</a></small></p>
+          <p><a href="https://github.com/Nafhed"><img class="github-link" src="/assets/images/GitHub-Mark-Light-32px.png" /></a></p>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
