@@ -24,13 +24,7 @@
   </head>
   <body>
     <header role="header" id="header">
-      <div class="inside inside-header">
-        <span id="logo"></span>
-        <h1><%= item[:author] %></h1>
-        <h2 class="greeting">That's Me.</h2>
-        <p>I'm a <em>Web Developer</em>, from South West England.</p>
-        <h3>This is what I do.</h3>
-      </div>
+      <div class="navigation-wrapper navbar">
         <nav id="navigation" class="main-menu" role="navigation">
           <ul class="menu">
             <li class="menu-item"><a class="nav-link active" href="#home">Home</a></li>
@@ -39,6 +33,15 @@
             <li class="menu-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
         </nav>
+      </div>
+      <div class="inside inside-header">
+        <span id="logo"></span>
+        <h1><%= item[:author] %></h1>
+        <h2 class="greeting">That's Me.</h2>
+        <p>I'm a <em>Web Developer</em>, from South West England.</p>
+        <h3>This is what I do.</h3>
+        <img class="pointer" src="/assets/images/downwards.png" />
+      </div>
         <canvas id="canvas_lines"></canvas>
         <section id="home" class="home portfolio-section"><span>Just a placeholder for the Home navigation.</span></section>
     </header>
@@ -52,9 +55,11 @@
           <h2>What I'm currently working on...</h2>
           <% items_with_tag('future').each do |post| %>
           <article class="post">
-            <h1><%= link_to post[:title], post.path %></h1>
-            <img class="highlight-image" src="<%= post[:image] %>" />
-            <span><i class="icon icon-<%= post[:icon] %>"></i> <%= post[:tag] %></span>
+            <a href="<%= post[:url] %>">
+              <h1><%= post[:title] %></h1>
+              <img class="highlight-image" src="<%= post[:image] %>" />
+              <span><i class="icon icon-<%= post[:icon] %>"></i> <%= post[:tag] %></span>
+            </a>
           </article>
           <% end %>
         </article>
@@ -64,33 +69,70 @@
           <h1> Skills </h1>
 
           <div class="description">
-            <p><%= lipsum_placeholder %></p>
+            <p>My experience so far has led me to discover my strengths as a developer. My interest has pushed me to discover new and interesting topics and I like to get my hands dirty where possible.</p>
+            <p>I started off a few years ago with little knowledge. Since then, I have been able to progress the skills that I have learnt. I'm not event afraid to use the command line anymore!</p>
           </div>
-
-          <ul class="skills-tags">
-            <li class="tag skill" style="font-size: 60%;">JavaScript ->
-              <ul class="sub-skills">
-                <li class="tag skill" style="font-size: 80%;">jQuery</li>
-              </ul>
-            </li>
-            <li class="tag skill"style="font-size: 90%;">HTML5</li>
-            <li class="tag skill" style="font-size: 60%;">PHP</li>
-            <li class="tag skill" style="font-size: 10%;">Ruby</li>
-            <li class="tag skill" style="font-size: 15%;">Linux</li>
-            <li class="tag skill" style="font-size: 80%;">CSS ->
-              <ul class="sub-skills">
-                <li class="tag skill"style="font-size: 50%;">SCSS</li>
-              </ul>
-            </li>
-            <li class="tag skill" style="font-size: 70%;">Custom CMS ->
-              <ul class="sub-skills">
-                <li class="tag skill" style="font-size: 100%;">WordPress</li>
-                <li class="tag skill" style="font-size: 100%;">Drupal</li>
-              </ul>
-            </li>
-          </ul>
         </article>
-      </section>
+      <div class="skills-tree">
+        <ul class="skills-tags">
+          <li class="tag skill blue-1"><span>JavaScript</span>
+            <ul class="sub-skills">
+              <li class="tag skill blue-2"><span>jQuery</span></li>
+              <li class="tag skill blue-3"><span>UnderscoreJS</span></li>
+              <li class="tag skill blue-4"><span>NodeJS</span></li>
+            </ul>
+          </li>
+          <li class="tag skill green-1"><span>HTML5</span>
+            <ul class="sub-skills">
+              <li class="tag skill green-2"><span>Semantics</span></li>
+              <li class="tag skill green-3"><span>Templating</span></li>
+            </ul>
+          </li>
+          <li class="tag skill dblue-1"><span>PHP</span>
+            <ul class="sub-skills">
+              <li class="tag skill dblue-2"><span>Twig</span></li>
+            </ul>
+          </li>
+          <li class="tag skill seagreen-1"><span>Ruby</span>
+            <ul class="sub-skills">
+              <li class="tag skill seagreen-2"><span>Nanoc</span></li>
+            </ul>
+          </li>
+          <li class="tag skill indigo-1"><span>Linux</span>
+            <ul class="sub-skills">
+              <li class="tag skill indigo-2"><span>Ubuntu</span></li>
+            </ul>
+          </li>
+          <li class="tag skill purple-1"><span>CSS</span>
+            <ul class="sub-skills">
+              <li class="tag skill purple-2"><span>BootStrap</span></li>
+              <li class="tag skill purple-3"><span>SCSS</span></li>
+              <li class="tag skill purple-4"><span>Bourbon</span></li>
+            </ul>
+          </li>
+          <li class="tag skill dmagenta-1"><span>CMS</span>
+            <ul class="sub-skills">
+              <li class="tag skill dmagenta-2"><span>WordPress</span></li>
+              <li class="tag skill dmagenta-3"><span>Drupal</span></li>
+              <li class="tag skill dmagenta-4"><span>Shopify</span></li>
+              <li class="tag skill dmagenta-5"><span>CiviCRM</span></li>
+            </ul>
+          </li>
+          <li class="tag skill dcyan-1"><span>Database</span>
+            <ul class="sub-skills">
+              <li class="tag skill dcyan-2"><span>MySQL</span></li>
+              <li class="tag skill dcyan-3"><span>NoSQL</span></li>
+            </ul>
+          </li>
+            <li class="tag skill scarlet-1"><span>Subversion</span>
+              <ul class="sub-skills">
+                <li class="tag skill scarlet-2"><span>Git</span></li>
+                <li class="tag skill scarlet-3"><span>SVN</span></li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+    </section>
     </div>
     <footer id="footer" role="footer">
       <div class="inside inside-footer">
