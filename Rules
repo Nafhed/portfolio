@@ -91,7 +91,9 @@ compile '*' do
         filter :erb
     end
       layout 'main'
-      filter :colorize_syntax, :default_colorizer => :pygmentsrb
+      filter :colorize_syntax,
+      :default_colorizer => :pygmentsrb,
+      :pygmentsrb => { :options => { :startinline => 'TRUE' } }
       filter :erb
     end
   end
@@ -138,5 +140,6 @@ route '*' do
   end
 end
 
+layout 'main', :erb
 layout '*', :mustache
 # https://gist.github.com/bburton
