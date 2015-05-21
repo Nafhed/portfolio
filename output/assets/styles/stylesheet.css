@@ -307,33 +307,30 @@ input[type="submit"] {
 
 /* line 4, neat/grid/_box-sizing.scss */
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 /* line 9, neat/grid/_box-sizing.scss */
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
+*, *::after, *::before {
   box-sizing: inherit;
 }
 
-/* line 14, content/assets/styles/stylesheet.scss */
+/* line 26, content/assets/styles/stylesheet.scss */
 body {
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   background: #FFF;
   margin: 0;
 }
 
-/* line 20, content/assets/styles/stylesheet.scss */
+/* line 32, content/assets/styles/stylesheet.scss */
 header#header {
   position: relative;
   width: 100%;
   background: #0E1737;
-  padding: 2em 0;
+  padding: 2em 0 5em 0;
+  height: 40em;
 }
-/* line 26, content/assets/styles/stylesheet.scss */
+/* line 39, content/assets/styles/stylesheet.scss */
 header#header .inside-header {
   max-width: 68em;
   margin-left: auto;
@@ -347,12 +344,19 @@ header#header .inside-header::after {
   content: "";
   display: table;
 }
-/* line 31, content/assets/styles/stylesheet.scss */
+/* line 44, content/assets/styles/stylesheet.scss */
 header#header .inside-header h1 {
   font-size: 4.8em;
   font-weight: 200;
 }
-/* line 36, content/assets/styles/stylesheet.scss */
+/* line 49, content/assets/styles/stylesheet.scss */
+header#header .inside-header h3 {
+  margin-top: 3.5em;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+/* line 56, content/assets/styles/stylesheet.scss */
 header#header .inside-header #logo {
   background: url("../images/portfolio_circle_red.png") left center no-repeat;
   display: inline-block;
@@ -360,56 +364,77 @@ header#header .inside-header #logo {
   height: 90px;
   margin: 1em 0;
 }
-/* line 45, content/assets/styles/stylesheet.scss */
+/* line 64, content/assets/styles/stylesheet.scss */
+header#header .inside-header img.pointer {
+  position: absolute;
+  bottom: 1.5em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.7;
+}
+/* line 74, content/assets/styles/stylesheet.scss */
 header#header section#home {
   height: 0;
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
 }
-/* line 50, content/assets/styles/stylesheet.scss */
+/* line 79, content/assets/styles/stylesheet.scss */
 header#header nav {
   width: 100%;
   z-index: 999;
 }
-/* line 55, content/assets/styles/stylesheet.scss */
+/* line 20, bourbon/addons/_clearfix.scss */
+header#header nav::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+/* line 85, content/assets/styles/stylesheet.scss */
 header#header nav ul {
   text-align: right;
+  float: right;
   margin-right: 8.5298%;
 }
-/* line 59, content/assets/styles/stylesheet.scss */
+/* line 90, content/assets/styles/stylesheet.scss */
 header#header nav ul li {
-  display: inline-block;
+  float: left;
 }
-/* line 62, content/assets/styles/stylesheet.scss */
+/* line 93, content/assets/styles/stylesheet.scss */
 header#header nav ul li a {
   color: #FFF;
-  padding: 0.5em;
-  display: inline-block;
+  padding: 0.8em;
+  display: block;
 }
-/* line 67, content/assets/styles/stylesheet.scss */
+/* line 98, content/assets/styles/stylesheet.scss */
 header#header nav ul li a.active {
-  border-bottom: 2px solid #FFF;
+  border-bottom: 3px solid #0092EC;
 }
-/* line 75, content/assets/styles/stylesheet.scss */
+/* line 101, content/assets/styles/stylesheet.scss */
+header#header nav ul li a:hover {
+  background: #1B2135;
+}
+/* line 109, content/assets/styles/stylesheet.scss */
 header#header nav.fxd {
   background: #0E1737;
 }
-/* line 80, content/assets/styles/stylesheet.scss */
+/* line 114, content/assets/styles/stylesheet.scss */
 header#header #canvas_lines {
   position: absolute;
   top: 0;
 }
 
-/* line 88, content/assets/styles/stylesheet.scss */
+/* line 122, content/assets/styles/stylesheet.scss */
 #page h2 {
   line-height: 1.75em;
+  margin: 0.75em 0;
 }
-/* line 92, content/assets/styles/stylesheet.scss */
+/* line 127, content/assets/styles/stylesheet.scss */
 #page section {
-  padding: 2em 0;
+  padding: 3em 0;
 }
-/* line 96, content/assets/styles/stylesheet.scss */
+/* line 131, content/assets/styles/stylesheet.scss */
 #page section article {
   max-width: 68em;
   margin-left: auto;
@@ -421,7 +446,16 @@ header#header #canvas_lines {
   content: "";
   display: table;
 }
-/* line 100, content/assets/styles/stylesheet.scss */
+/* line 134, content/assets/styles/stylesheet.scss */
+#page section article.portfolio-content {
+  text-align: center;
+}
+/* line 137, content/assets/styles/stylesheet.scss */
+#page section article.portfolio-content .description {
+  width: 60%;
+  margin: 0 auto;
+}
+/* line 144, content/assets/styles/stylesheet.scss */
 #page section#projects {
   max-width: 68em;
   margin-left: auto;
@@ -433,43 +467,333 @@ header#header #canvas_lines {
   content: "";
   display: table;
 }
-/* line 103, content/assets/styles/stylesheet.scss */
+/* line 147, content/assets/styles/stylesheet.scss */
 #page section#projects #past_projects,
 #page section#projects #future_projects {
   width: 100%;
   display: inline-block;
 }
-/* line 108, content/assets/styles/stylesheet.scss */
-#page section#projects #past_projects figure.show-off,
-#page section#projects #future_projects figure.show-off {
-  margin: 0;
+/* line 153, content/assets/styles/stylesheet.scss */
+#page section#projects article.post {
+  position: relative;
   float: left;
   display: block;
   margin-right: 1.87727%;
   width: 32.08182%;
   padding: 0.5em;
-  background: #eac2ea;
-  height: 225px;
+  height: 275px;
+  text-align: center;
 }
-/* line 87, neat/grid/_span-columns.scss */
-#page section#projects #past_projects figure.show-off:last-child,
-#page section#projects #future_projects figure.show-off:last-child {
+/* line 89, neat/grid/_span-columns.scss */
+#page section#projects article.post:last-child {
   margin-right: 0;
 }
-/* line 118, content/assets/styles/stylesheet.scss */
+/* line 160, content/assets/styles/stylesheet.scss */
+#page section#projects article.post a {
+  color: #191919;
+}
+/* line 163, content/assets/styles/stylesheet.scss */
+#page section#projects article.post a h1 {
+  opacity: 0;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 35%;
+  color: #000;
+}
+/* line 173, content/assets/styles/stylesheet.scss */
+#page section#projects article.post img.highlight-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/* line 179, content/assets/styles/stylesheet.scss */
+#page section#projects article.post span {
+  opacity: 0;
+  position: absolute;
+  margin: auto;
+  top: 45%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 5%;
+  color: #0092EC;
+}
+/* line 190, content/assets/styles/stylesheet.scss */
+#page section#projects article.post:hover img.highlight-image {
+  opacity: 0;
+  -webkit-transition: opacity 0.75s ease-out;
+  -moz-transition: opacity 0.75s ease-out;
+  transition: opacity 0.75s ease-out;
+}
+/* line 195, content/assets/styles/stylesheet.scss */
+#page section#projects article.post:hover h1,
+#page section#projects article.post:hover span {
+  opacity: 1;
+  -webkit-transition: opacity 0.75s ease-out;
+  -moz-transition: opacity 0.75s ease-out;
+  transition: opacity 0.75s ease-out;
+}
+/* line 203, content/assets/styles/stylesheet.scss */
 #page section#skills {
   background: #FFC81B;
+  padding: 0;
+}
+/* line 207, content/assets/styles/stylesheet.scss */
+#page section#skills article {
+  padding: 3em 0;
+}
+/* line 211, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree {
+  background: #191919;
+  display: inline-block;
+  width: 100%;
+}
+/* line 218, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags > li.skill {
+  float: left;
+  display: block;
+  margin-right: 1.87727%;
+  width: 11.11208%;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  color: #FFF;
+}
+/* line 89, neat/grid/_span-columns.scss */
+#page section#skills .skills-tree ul.skills-tags > li.skill:last-child {
+  margin-right: 0;
+}
+/* line 225, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags > li.skill span {
+  padding: 3em 0;
+  display: block;
+}
+/* line 234, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.blue-1 span {
+  background: #1973c7;
+}
+/* line 237, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.green-1 span {
+  background: #00ad37;
+}
+/* line 240, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.seagreen-1 span {
+  background: #24c05d;
+}
+/* line 243, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dblue-1 span {
+  background: #0c3bc2;
+}
+/* line 246, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.indigo-1 span {
+  background: #3217c9;
+}
+/* line 249, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.purple-1 span {
+  background: #a61170;
+}
+/* line 252, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dmagenta-1 span {
+  background: #7d18c9;
+}
+/* line 255, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dcyan-1 span {
+  background: #1b8cc5;
+}
+/* line 258, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.scarlet-1 span {
+  background: #b30b15;
+}
+/* line 234, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.blue-2 span {
+  background: #2086e3;
+}
+/* line 237, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.green-2 span {
+  background: #00d043;
+}
+/* line 240, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.seagreen-2 span {
+  background: #2fd86d;
+}
+/* line 243, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dblue-2 span {
+  background: #0e46e3;
+}
+/* line 246, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.indigo-2 span {
+  background: #3c1ee6;
+}
+/* line 249, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.purple-2 span {
+  background: mediumvioletred;
+}
+/* line 252, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dmagenta-2 span {
+  background: #9020e5;
+}
+/* line 255, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dcyan-2 span {
+  background: #24a1e1;
+}
+/* line 258, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.scarlet-2 span {
+  background: #d40d19;
+}
+/* line 234, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.blue-3 span {
+  background: #4097e7;
+}
+/* line 237, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.green-3 span {
+  background: #00f44e;
+}
+/* line 240, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.seagreen-3 span {
+  background: #4dde82;
+}
+/* line 243, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dblue-3 span {
+  background: #2459f1;
+}
+/* line 246, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.indigo-3 span {
+  background: #583ee9;
+}
+/* line 249, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.purple-3 span {
+  background: #e7189b;
+}
+/* line 252, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dmagenta-3 span {
+  background: #a040e8;
+}
+/* line 255, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dcyan-3 span {
+  background: #43afe5;
+}
+/* line 258, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.scarlet-3 span {
+  background: #f01522;
+}
+/* line 234, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.blue-4 span {
+  background: #60a8eb;
+}
+/* line 237, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.green-4 span {
+  background: #19ff63;
+}
+/* line 240, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.seagreen-4 span {
+  background: #6be497;
+}
+/* line 243, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dblue-4 span {
+  background: #4573f3;
+}
+/* line 246, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.indigo-4 span {
+  background: #745eed;
+}
+/* line 249, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.purple-4 span {
+  background: #ea39a9;
+}
+/* line 252, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dmagenta-4 span {
+  background: #b060ec;
+}
+/* line 255, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dcyan-4 span {
+  background: #62bce9;
+}
+/* line 258, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.scarlet-4 span {
+  background: #f33641;
+}
+/* line 234, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.blue-5 span {
+  background: #80baef;
+}
+/* line 237, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.green-5 span {
+  background: #3dff7b;
+}
+/* line 240, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.seagreen-5 span {
+  background: #89e9ac;
+}
+/* line 243, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dblue-5 span {
+  background: #678cf6;
+}
+/* line 246, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.indigo-5 span {
+  background: #907ef0;
+}
+/* line 249, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.purple-5 span {
+  background: #ee59b7;
+}
+/* line 252, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dmagenta-5 span {
+  background: #c080f0;
+}
+/* line 255, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dcyan-5 span {
+  background: #82c9ee;
+}
+/* line 258, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.scarlet-5 span {
+  background: #f55861;
+}
+/* line 234, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.blue-6 span {
+  background: #9fcbf3;
+}
+/* line 237, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.green-6 span {
+  background: #60ff93;
+}
+/* line 240, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.seagreen-6 span {
+  background: #a7efc1;
+}
+/* line 243, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dblue-6 span {
+  background: #89a5f8;
+}
+/* line 246, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.indigo-6 span {
+  background: #ab9ef4;
+}
+/* line 249, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.purple-6 span {
+  background: #f179c5;
+}
+/* line 252, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dmagenta-6 span {
+  background: #d0a0f4;
+}
+/* line 255, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.dcyan-6 span {
+  background: #a1d7f2;
+}
+/* line 258, content/assets/styles/stylesheet.scss */
+#page section#skills .skills-tree ul.skills-tags li.scarlet-6 span {
+  background: #f77981;
 }
 
-/* line 124, content/assets/styles/stylesheet.scss */
-footer {
-  padding: 2em 0;
-}
-/* line 127, content/assets/styles/stylesheet.scss */
+/* line 270, content/assets/styles/stylesheet.scss */
 footer#footer {
   background: #014062;
 }
-/* line 130, content/assets/styles/stylesheet.scss */
+/* line 273, content/assets/styles/stylesheet.scss */
 footer#footer .inside-footer {
   max-width: 68em;
   margin-left: auto;
@@ -482,7 +806,16 @@ footer#footer .inside-footer::after {
   content: "";
   display: table;
 }
-/* line 134, content/assets/styles/stylesheet.scss */
+/* line 277, content/assets/styles/stylesheet.scss */
 footer#footer .inside-footer section.contact {
+  padding: 2em 0;
   text-align: center;
+}
+/* line 281, content/assets/styles/stylesheet.scss */
+footer#footer .inside-footer section.contact i {
+  margin-right: 5px;
+}
+/* line 285, content/assets/styles/stylesheet.scss */
+footer#footer .inside-footer section.contact h4 {
+  margin: 0.5em 0;
 }

@@ -5,6 +5,9 @@
     <title>My Personal Space - </title>
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <meta name="description" content="Personal portfolio of Nathan Brettell.">
+    <meta name="keywords" content="web developer, portfolio, south west, cornwall, bristol, plymouth">
+
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
     <!-- you don't need to keep this, but it's cool for stats! (I like stats!)-->
     <meta name="generator" content="nanoc ">
@@ -16,15 +19,21 @@
     <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/jquery.smint.js"></script>
     <script type="text/javascript" src="/assets/scripts/script.js"></script>
+
+    <script type="text/javascript">        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-28161343-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s  = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+</script>
   
   
     <header role="header" id="header">
-      <div class="inside inside-header">
-        <span id="logo"></span>
-        <h1></h1>
-        <h2 class="greeting">That's Me.</h2>
-        <p>I'm a Web Developer, from South West England.</p>
-      </div>
+      <div class="navigation-wrapper navbar">
         <nav id="navigation" class="main-menu" role="navigation">
           <ul class="menu">
             <li class="menu-item"><a class="nav-link active" href="#home">Home</a></li>
@@ -33,32 +42,55 @@
             <li class="menu-item"><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
         </nav>
+      </div>
+      <div class="inside inside-header">
+        <span id="logo"></span>
+        <h1></h1>
+        <h2 class="greeting">That's Me.</h2>
+        <p>I'm a <em>Web Developer</em>, from South West England.</p>
+        <h3>This is what I do.</h3>
+        <img class="pointer" src="/assets/images/downwards.png">
+      </div>
         <canvas id="canvas_lines"></canvas>
         <section id="home" class="home portfolio-section"><span>Just a placeholder for the Home navigation.</span></section>
     </header>
     <div id="page">
       <section id="projects" class="projects portfolio-section">
-        <article id="project-showcase" class="portfolio-content gallery" role="gallery">
+        <article id="past-project-showcase" class="portfolio-content gallery" role="gallery">
           <h1> Projects </h1>
           
-          <div class="post">
-            <h1></h1>
-            <aside>Posted at: </aside>
-            <article>
-              
-            </article>
-          </div>
-          
-          
 <div class="post">
-  <h1><a href="/2015/04/digital-media-project/">Digital Media Project</a></h1>
+  <h1><a href="/2015/05/ghm/">Glenside Hospital Museum</a></h1>
+  <aside>Posted at: 2015-05-09 19:17:00 +0100</aside>
+  <article>
+    <p>WordPress stuff.</p>
+
+  </article>
+</div>
+
+<div class="post">
+  <h1><a href="/2015/04/handcraffted/">HandCraffted</a></h1>
+  <aside>Posted at: 2015-04-13 19:17:00 +0100</aside>
+  <article>
+    <p>Shopify Theme</p>
+
+  </article>
+</div>
+
+<div class="post">
+  <h1><a href="/2015/04/gamification/">Digital Media Project</a></h1>
   <aside>Posted at: 2015-04-01 19:17:00 +0100</aside>
   <article>
-    <h1>My "Digital Media Project" blog thing.</h1>
+    <p>Core content</p>
 
-<p>Textual content</p>
+  </article>
+</div>
 
-<i class="icon icon-tag"></i>
+<div class="post">
+  <h1><a href="/2015/04/fair-wear-clothing/">Fair Wear Clothing</a></h1>
+  <aside>Posted at: 2015-04-01 19:17:00 +0100</aside>
+  <article>
+    <p>Textual content</p>
 
   </article>
 </div>
@@ -67,87 +99,124 @@
   <h1><a href="/2015/03/crime-data/">Police Crime Data</a></h1>
   <aside>Posted at: 2015-03-25 22:00:00 +0000</aside>
   <article>
-    <h1>My "Police Crime Data" blog thing.</h1>
-
-<pre><code class="language-php"><span class="x">  function code($one, $two) {</span>
-<span class="x">    // code somethings pls</span>
-<span class="x">  }</span></code></pre>
-
-<pre><code class="language-ruby">  <span class="k">def</span> <span class="nf">foo</span>
-  <span class="s2">"asdf"</span>
-  <span class="k">end</span></code></pre>
+    <p>Caption. </p>
 
   </article>
 </div>
 
 
-          <div id="past_projects">
-            <figure class="show-off">
-              <img>
-              <figcaption class="category"><i class="icon icon-tag"></i> Clothing
-            </figcaption></figure>
-            <figure class="show-off">
-              <img>
-              <figcaption class="category"><i class="icon icon-gamepad"></i> Gamification
-            </figcaption></figure>
-            <figure class="show-off">
-              <img>
-              <figcaption class="category"><i class="icon icon-bar-chart"></i> API/Visualization
-            </figcaption></figure>
-          </div>
+        </article>
+        <article id="future-project-showcase" class="portfolio-content gallery" role="gallery">
           <h2>What I'm currently working on...</h2>
-          <div id="future_projects">
-            <figure class="show-off">
-              <img>
-              <figcaption class="category"><i class="icon icon-gamepad"></i> Gamification
-            </figcaption></figure>
-            <figure class="show-off">
-              <img>
-              <figcaption class="category"><i class="icon icon-bar-chart"></i> API/Visualization
-            </figcaption></figure>
-          </div>
+          
+          <article class="post">
+            <a href="projects/fair-wear-clothing">
+              <h1>Glenside Hospital Museum</h1>
+              <img class="highlight-image" src="/assets/images/projects-ghm.png">
+              <span><i class="icon icon-tag"></i> Theme</span>
+            </a>
+          </article>
+          
+          <article class="post">
+            <a href="projects/fair-wear-clothing">
+              <h1>HandCraffted</h1>
+              <img class="highlight-image" src="/assets/images/projects-handcraffted.png">
+              <span><i class="icon icon-tag"></i> Theme</span>
+            </a>
+          </article>
+          
         </article>
       </section>
       <section id="skills" class="skills portfolio-section">
         <article class="portfolio-content">
           <h1> Skills </h1>
 
-          <p>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-    Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-          <ul class="skills-tags">
-            <li class="tag skill">jQuery</li>
-            <li class="tag skill">HTML5</li>
-            <li class="tag skill">PHP</li>
-          </ul>
-          <div id="skill-examples" class="skills">
-            <div class="skill-example codehilite">
-              <pre><code class="language-javascript">                <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                  <span class="c1">// code stuffs here</span>
-                <span class="p">});</span></code></pre>
-            </div>
-            <div class="skill-example codehilite">
-              <pre><code class="language-php"><span class="x">                function code($one, $two) {</span>
-<span class="x">                  // code somethings pls</span>
-<span class="x">                }</span></code></pre>
-            </div>
-            <div class="skill-example codehilite">
-              <pre><code class="language-ruby">                <span class="k">def</span> <span class="nf">foo</span>
-                <span class="s2">"asdf"</span>
-                <span class="k">end</span></code></pre>
-            </div>
+          <div class="description">
+            <p>My experience so far has led me to discover my strengths as a developer. My interest has pushed me to discover new and interesting topics and I like to get my hands dirty where possible.</p>
+            <p>I started off a few years ago with little knowledge. Since then, I have been able to progress the skills that I have learnt. I'm not event afraid to use the command line anymore!</p>
           </div>
         </article>
-      </section>
+      <div class="skills-tree">
+        <ul class="skills-tags">
+          <li class="tag skill blue-1">
+<span>JavaScript</span>
+            <ul class="sub-skills">
+              <li class="tag skill blue-2"><span>jQuery</span></li>
+              <li class="tag skill blue-3"><span>UnderscoreJS</span></li>
+              <li class="tag skill blue-4"><span>NodeJS</span></li>
+            </ul>
+          </li>
+          <li class="tag skill green-1">
+<span>HTML5</span>
+            <ul class="sub-skills">
+              <li class="tag skill green-2"><span>Semantics</span></li>
+              <li class="tag skill green-3"><span>Templating</span></li>
+            </ul>
+          </li>
+          <li class="tag skill dblue-1">
+<span>PHP</span>
+            <ul class="sub-skills">
+              <li class="tag skill dblue-2"><span>Twig</span></li>
+            </ul>
+          </li>
+          <li class="tag skill seagreen-1">
+<span>Ruby</span>
+            <ul class="sub-skills">
+              <li class="tag skill seagreen-2"><span>Nanoc</span></li>
+            </ul>
+          </li>
+          <li class="tag skill indigo-1">
+<span>Linux</span>
+            <ul class="sub-skills">
+              <li class="tag skill indigo-2"><span>Ubuntu</span></li>
+            </ul>
+          </li>
+          <li class="tag skill purple-1">
+<span>CSS</span>
+            <ul class="sub-skills">
+              <li class="tag skill purple-2"><span>BootStrap</span></li>
+              <li class="tag skill purple-3"><span>SCSS</span></li>
+              <li class="tag skill purple-4"><span>Bourbon</span></li>
+            </ul>
+          </li>
+          <li class="tag skill dmagenta-1">
+<span>CMS</span>
+            <ul class="sub-skills">
+              <li class="tag skill dmagenta-2"><span>WordPress</span></li>
+              <li class="tag skill dmagenta-3"><span>Drupal</span></li>
+              <li class="tag skill dmagenta-4"><span>Shopify</span></li>
+              <li class="tag skill dmagenta-5"><span>CiviCRM</span></li>
+            </ul>
+          </li>
+          <li class="tag skill dcyan-1">
+<span>Database</span>
+            <ul class="sub-skills">
+              <li class="tag skill dcyan-2"><span>MySQL</span></li>
+              <li class="tag skill dcyan-3"><span>NoSQL</span></li>
+            </ul>
+          </li>
+            <li class="tag skill scarlet-1">
+<span>Subversion</span>
+              <ul class="sub-skills">
+                <li class="tag skill scarlet-2"><span>Git</span></li>
+                <li class="tag skill scarlet-3"><span>SVN</span></li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+    </section>
     </div>
     <footer id="footer" role="footer">
       <div class="inside inside-footer">
-        <section class="contact portfolio-section">
+        <section id="contact" class="contact portfolio-section">
           <h4> Contact </h4>
-          <span class="legal-stuff">© </span> -
-          <a href="mailto:hello@nathanbrettell.com">hello@nathanbrettell.com</a>
-          <i class="icon icon-evelope"></i>
+          <p>
+            <span class="legal-stuff">© </span> -
+            <i class="icon icon-envelope"></i>
+            <a href="mailto:hello@nathanbrettell.com">hello@nathanbrettell.com</a>
+          </p>
+          <p><small>Built with <a href="http://nanoc.ws">Nanoc</a></small></p>
+          <p><a href="https://github.com/Nafhed"><img class="github-link" src="/assets/images/GitHub-Mark-Light-32px.png"></a></p>
         </section>
       </div>
     </footer>

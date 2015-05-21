@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
-      canvas.height = 405;
+      canvas.height = 640;
 
       // ink
       context.strokeStyle = "#eee";
