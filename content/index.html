@@ -3,20 +3,17 @@ title: Portfolio of Nathan
 author: Nathan Brettell
 ---
 <div class="description">
-  <p>Here are a few things that I have worked on.</p>
+  <p>Here are a few up-to-date projects that I have had the freedom to create.</p>
 
-  <p>I'm gonna turn this into a blog.</p>
-
-  <p>If you need any help with customizing your nanoc web site, be sure to check out the documentation (see sidebar), and be sure to subscribe to the discussion group (also see sidebar). Enjoy!</p>
-
-  <p>Another nanoc convert! Master will be pleased!</p>
+  <p>Through the last couple of years, I have seen myself go from strength to strength improving my skills and knowlege in Web Development. The below projects demonstrate my capability as a developer.</p>
 </div>
 
-<% sorted_articles.each do |post| %>
-<artcle class='post'>
-  <h1><%= link_to post[:title], post.path %></h1>
-  <span>Posted at: <%= post[:created_at] %></span>
-  <span>Posted at: <%= post[:tag] %></span>
-    <%= post.compiled_content %>
+<% items_with_tag('past').each do |post| %>
+<article class="post">
+  <a href="<%= post[:url] %>">
+    <h1><%= post[:title] %></h1>
+    <img class="highlight-image" src="<%= post[:image] %>" />
+    <span><i class="icon icon-<%= post[:icon] %>"></i> <%= post[:tag] %></span>
+  </a>
 </article>
 <% end %>
