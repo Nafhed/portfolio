@@ -14,3 +14,4 @@ include Nanoc3::Helpers::LinkTo
 
 # Helpers of the nanoc-toolbox
 include Nanoc::Toolbox::Helpers::GoogleAnalytics
+include Nanoc::Toolbox::Helpers::TaggingExtra
