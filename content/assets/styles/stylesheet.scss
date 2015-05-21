@@ -7,9 +7,21 @@
 $blue: #0092EC;
 $white: #FFF;
 
+// main porfolio sections
 $projects-color: #eac2ea;
 $skills-color: #FFC81B;
 $contact-color: #014062;
+
+// skill colours
+$blue-color: #1561a7;
+$green-color: #00892c;
+$seagreen-color: #1ea24e;
+$dark-blue-color: #0a31a0;
+$indigo-color: #2a13a9;
+$purple-color: #860e5a;
+$dark-magenta-color: #6914a9;
+$dark-cyan-color: #1776a6;
+$scarlet-color: #910911;
 
 body {
   font-family: $helvetica;
@@ -21,7 +33,8 @@ header#header {
   position: relative;
   @include fill-parent;
   background: #0E1737;
-  @include pad(2em 0);
+  @include pad(2em 0 5em 0);
+  height: 40em;
 
   .inside-header {
     @include outer-container;
@@ -33,12 +46,28 @@ header#header {
         font-weight: 200;
       }
 
+      h3 {
+        margin-top: 3.5em;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+
       #logo {
         background: url('../images/portfolio_circle_red.png') left center no-repeat;
         display: inline-block;
         width: 90px;
         height: 90px;
         @include margin(1em 0);
+      }
+
+      img.pointer {
+        position: absolute;
+        bottom: 1.5em;
+        left: 0;
+        right: 0;
+        margin: auto;
+        opacity: 0.7;
       }
     }
 
@@ -49,23 +78,28 @@ header#header {
 
     nav {
       @include fill-parent;
+      @include clearfix;
       z-index: 999;
 
     @include direction-context(right-to-left) {
       ul {
         text-align: right;
+        float: right;
         @include shift(1);
 
         li {
-          display: inline-block;
+          float: left;
 
           a {
             color: $white;
-            @include pad(0.5em);
-            display: inline-block;
+            @include pad(0.8em);
+            display: block;
 
             &.active {
-              border-bottom: 2px solid $white;
+              border-bottom: 3px solid $blue;
+            }
+            &:hover {
+              background: #1B2135;
             }
           }
         }
@@ -87,14 +121,24 @@ header#header {
 
   h2 {
     line-height: 1.75em;
+    margin: 0.75em 0;
   }
 
   section {
     // @include fill-parent;
-    @include pad(2em 0);
+    @include pad(3em 0);
 
     article {
       @include outer-container;
+
+      &.portfolio-content {
+        text-align: center;
+
+        .description {
+          width: 60%;
+          margin: 0 auto;
+        }
+      }
     }
 
     &#projects {
@@ -104,25 +148,124 @@ header#header {
       #future_projects {
         @include fill-parent();
         display: inline-block;
+      }
 
-        figure.show-off {
-          margin: 0;
-          @include span-columns(5 of 15);
-          @include pad(0.5em);
-          background: $projects-color;
-          height: 225px;
+      article.post {
+        position: relative;
+        @include span-columns(5 of 15);
+        @include pad(0.5em);
+        height: 275px;
+        text-align: center;
+
+          a {
+            color: #191919;
+
+            h1 {
+              opacity: 0;
+              position: absolute;
+              margin: auto;
+              top: 0; left: 0; bottom: 0; right: 0;
+              height: 35%;
+              color: #000;
+            }
         }
 
+        img.highlight-image {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        span {
+          opacity: 0;
+          position: absolute;
+          margin: auto;
+          top: 45%; left: 0; bottom: 0; right: 0;
+          height: 5%;
+          color: $blue;
+        }
+
+        &:hover {
+
+          img.highlight-image {
+            opacity: 0;
+            @include transition(opacity .75s ease-out);
+          }
+
+          h1,
+          span {
+            opacity: 1;
+            @include transition(opacity .75s ease-out);
+          }
+        }
       }
     }
     &#skills {
       background: $skills-color;
+      @include pad(0);
+
+      article {
+        padding: 3em 0;
+      }
+
+      .skills-tree {
+        background: #191919;
+        display: inline-block;
+        width: 100%;
+
+        ul.skills-tags {
+
+          > li.skill {
+            @include span-columns(1.9125 of 15);
+            display: inline-block;
+            margin: 0;
+            text-align: center;
+            color: $white;
+
+            span {
+              @include pad(3em 0);
+              display: block;
+            }
+          }
+
+          // doing some colouring...
+          @for $i from 1 through 6 {
+
+            li.blue-#{$i} span {
+              background: lighten( $blue-color, $i * 7 + 0% );
+            }
+            li.green-#{$i} span {
+              background: lighten( $green-color, $i * 7 + 0% );
+            }
+            li.seagreen-#{$i} span {
+              background: lighten( $seagreen-color, $i * 7 + 0% );
+            }
+            li.dblue-#{$i} span {
+              background: lighten( $dark-blue-color, $i * 7 + 0% );
+            }
+            li.indigo-#{$i} span {
+              background: lighten( $indigo-color, $i * 7 + 0% );
+            }
+            li.purple-#{$i} span {
+              background: lighten( $purple-color, $i * 7 + 0% );
+            }
+            li.dmagenta-#{$i} span {
+              background: lighten( $dark-magenta-color, $i * 7 + 0% );
+            }
+            li.dcyan-#{$i} span {
+              background: lighten( $dark-cyan-color, $i * 7 + 0% );
+            }
+            li.scarlet-#{$i} span {
+              background: lighten( $scarlet-color, $i * 7 + 0% );
+            }
+          }
+        }
+      }
     }
   }
 }
 
 footer {
-@include pad(2em 0);
 
   &#footer {
     background: $contact-color;
@@ -132,7 +275,16 @@ footer {
       color: $white;
 
       section.contact {
+        @include pad(2em 0);
         text-align: center;
+
+        i {
+          margin-right: 5px;
+        }
+
+        h4 {
+          margin: 0.5em 0;
+        }
       }
     }
   }
